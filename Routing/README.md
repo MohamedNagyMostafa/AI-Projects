@@ -6,11 +6,17 @@
 <br/>
 <img src="https://i.imgur.com/SIG9rSN.png"/>
 
-<li>
-  <it>
+<ol>
+  <li>
     <h3>Breadth First Search</h3>
     <p>Output result: <b>Initial City(Arad) || Destination City(Bucharest)</b></p>
     <br/>
     <img src="https://i.imgur.com/FjZJ6BU.png"/>
-  </it>
-</li>
+  </li>
+  <li>
+    <h3>Uniform Cost Search</h3>
+    <p>Output result: <b>Initial City(Arad) || Destination City(Bucharest)</b></p>
+    <br/>
+    <img src="https://i.imgur.com/iJ3aVKY.png"/>
+  </li>
+</ol>
