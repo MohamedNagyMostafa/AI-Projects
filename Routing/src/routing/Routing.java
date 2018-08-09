@@ -34,10 +34,9 @@ public class Routing {
         System.out.println("\n Uniform Search Cose \n");
         UniformCostSearch uniformCostSearch = new UniformCostSearch(path);
         
-        UniformCostSearch.PathCost pathCost = uniformCostSearch.apply(initialCity, destinationCity);
-        System.out.println("Cost : " + pathCost.cost + "\n");
+        List<UniformCostSearch.PathCost> pathCosts = uniformCostSearch.apply(initialCity, destinationCity);
         
-        printRoute(pathCost.mStates);
+        printRoute(pathCosts);
     }
     
     private static void breadthFirstSearch(Path path){
@@ -82,9 +81,29 @@ public class Routing {
         System.out.println(intiState.getmName());
     }
     
-    private static void printRoute(LinkedList<State> linkedList){
-        for(State state: linkedList)
-            System.out.println(state.getmName());
+    private static void printRoute(List<UniformCostSearch.PathCost> pathCosts){
+        UniformCostSearch.PathCost bestPath = pathCosts.get(0);
+        int cost = pathCosts.get(0).cost;
+        
+        for(UniformCostSearch.PathCost pathCost: pathCosts){
+            if(cost > pathCost.cost){
+                cost = pathCost.cost;
+                bestPath = pathCost;
+            }
+            System.out.println("\n============================\n");
+            System.out.println("Cost: " + pathCost.cost + "\n");
+            System.out.println("path route: ");
+            for(State state: pathCost.mStates){
+                System.out.println(state.getmName());
+            }
+        }
+        
+        System.out.println("\n==========BEST PATH==========\n");
+            System.out.println("Cost: " + bestPath.cost + "\n");
+            System.out.println("path route: ");
+            for(State state: bestPath.mStates){
+                System.out.println(state.getmName());
+            }
     }
     
   

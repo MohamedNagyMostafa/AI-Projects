@@ -24,44 +24,53 @@ public class UniformCostSearch {
         mPath = path;
     }
     
-    public PathCost apply(State initialState, State destination){
+    public List<PathCost> apply(State initialState, State destination){
        
         List<PathCost> frontiers = new ArrayList<>();
         frontiers.add(new PathCost(initialState, 0));
-        
-        
-        if(destination.equals(initialState))
-            return frontiers.get(0);
+        List<PathCost> reachedGoal = new ArrayList<>();
+       
         
         PathCost pathCost;
 
         do{
-            pathCost = addStateFrontiers(frontiers, destination);    
+            pathCost = addStateFrontiers(frontiers, destination); 
             
-        }while (pathCost == null && !frontiers.isEmpty());
+            if(pathCost!= null)
+                reachedGoal.add(pathCost);            
+        }while (!frontiers.isEmpty());
         
-        return pathCost;
+        return reachedGoal;
     }
     
     private PathCost addStateFrontiers(List<PathCost> frontiers, State destination){
-        PathCost minPath = frontiers.get(0);
-        int minCost = minPath.cost;
+        PathCost minPath = null;
+        int minCost = -1;
         
         for(PathCost pathCost: frontiers){
-            if(pathCost.mStates.getLast().equals(destination))
+            if(pathCost.mStates.getLast().equals(destination)){
+                frontiers.remove(pathCost);
                 return pathCost;
+            }
             
-            if(minCost > pathCost.cost){
+            if((minCost > pathCost.cost || minPath == null) && !pathCost.mStates.getLast().isExplored()){
                 minCost = pathCost.cost;
                 minPath = pathCost;
             }
         }
         
+        if(minPath == null){
+            frontiers.clear();
+            
+            return null;
+        }
+        
         expandPath(minPath, frontiers);
+        
         
         return null;
     }
-    
+        
     private void expandPath(PathCost pathCost, List<PathCost> frontiers){
         frontiers.remove(pathCost);
         
