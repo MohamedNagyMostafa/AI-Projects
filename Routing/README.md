@@ -17,6 +17,6 @@
     <h3>Uniform Cost Search</h3>
     <p>Output result: <b>Initial City(Arad) || Destination City(Bucharest)</b></p>
     <br/>
-    <img src="https://i.imgur.com/iJ3aVKY.png"/>
+    <img src="https://i.imgur.com/5DLIrSS.png"/>
   </li>
 </ol>
