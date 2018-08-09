@@ -8,6 +8,7 @@ package routing;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.ListIterator;
 
 /**
@@ -18,14 +19,29 @@ public class Routing {
 
     private static State initialCity;
     private static State destinationCity;
-    private static final String FAIL = "FAIL";
-    private static final String SUCC = "SUCCESS";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         Path path = generateMap();
+        //breadthFirstSearch(path);
+        uniformCostSearch(path);
+        
+    }
+    private static void uniformCostSearch(Path path){
+        
+        System.out.println("\n Uniform Search Cose \n");
+        UniformCostSearch uniformCostSearch = new UniformCostSearch(path);
+        
+        UniformCostSearch.PathCost pathCost = uniformCostSearch.apply(initialCity, destinationCity);
+        System.out.println("Cost : " + pathCost.cost + "\n");
+        
+        printRoute(pathCost.mStates);
+    }
+    
+    private static void breadthFirstSearch(Path path){
+        
         List<State> frontiers = new ArrayList<>();
         
         frontiers.add(initialCity);
@@ -59,13 +75,16 @@ public class Routing {
             
 
         }
-       
-                    
-        
     }
-    
+
+  
     private static void printState(State intiState){
         System.out.println(intiState.getmName());
+    }
+    
+    private static void printRoute(LinkedList<State> linkedList){
+        for(State state: linkedList)
+            System.out.println(state.getmName());
     }
     
   
@@ -92,65 +111,65 @@ public class Routing {
         State Timisoara = new State("Timisoara");
         
         Path path = new Path(20);
-        path.addState(Arad, Zerind);
-        path.addState(Arad, Sibiu);
-        path.addState(Arad, Timisoara);
+        path.addState(Arad, Zerind, 75);
+        path.addState(Arad, Sibiu, 140);
+        path.addState(Arad, Timisoara, 118);
         
-        path.addState(Zerind, Oradea);
-        path.addState(Zerind, Arad);
+        path.addState(Zerind, Oradea, 71);
+        path.addState(Zerind, Arad, 75);
 
-        path.addState(Timisoara, Arad);
-        path.addState(Timisoara, Lugoj);
+        path.addState(Timisoara, Arad, 118);
+        path.addState(Timisoara, Lugoj, 111);
         
-        path.addState(Oradea, Zerind);
-        path.addState(Oradea, Sibiu);
+        path.addState(Oradea, Zerind, 71);
+        path.addState(Oradea, Sibiu, 151);
         
-        path.addState(Lugoj, Timisoara);
-        path.addState(Lugoj, Mehnadia);
+        path.addState(Lugoj, Timisoara, 111);
+        path.addState(Lugoj, Mehnadia, 70);
             
-        path.addState(Sibiu, Oradea);
-        path.addState(Sibiu, Arad);
-        path.addState(Sibiu, Fagars);
-        path.addState(Sibiu, Rimnicu);
+        path.addState(Sibiu, Oradea, 140);
+        path.addState(Sibiu, Arad, 151);
+        path.addState(Sibiu, Fagars, 99);
+        path.addState(Sibiu, Rimnicu, 80);
         
-        path.addState(Mehnadia, Lugoj);
-        path.addState(Mehnadia, Drobeta);
+        path.addState(Mehnadia, Lugoj, 70);
+        path.addState(Mehnadia, Drobeta, 75);
         
-        path.addState(Drobeta, Mehnadia);
-        path.addState(Drobeta, Cralova);
+        path.addState(Drobeta, Mehnadia, 75);
+        path.addState(Drobeta, Cralova, 120);
         
-        path.addState(Cralova, Rimnicu);
-        path.addState(Cralova, Drobeta);
-        path.addState(Cralova, Pitesti);
+        path.addState(Cralova, Rimnicu, 146);
+        path.addState(Cralova, Drobeta, 120);
+        path.addState(Cralova, Pitesti, 138);
         
-        path.addState(Rimnicu, Cralova);
-        path.addState(Rimnicu, Sibiu);
-        path.addState(Rimnicu, Pitesti);
+        path.addState(Rimnicu, Cralova, 146);
+        path.addState(Rimnicu, Sibiu, 80);
+        path.addState(Rimnicu, Pitesti, 97);
         
-        path.addState(Pitesti, Cralova);
-        path.addState(Pitesti, Rimnicu);
-        path.addState(Pitesti, Bucharest);
+        path.addState(Pitesti, Cralova, 138);
+        path.addState(Pitesti, Rimnicu, 97);
+        path.addState(Pitesti, Bucharest, 101);
         
-        path.addState(Fagars, Sibiu);
-        path.addState(Fagars, Bucharest);
+        path.addState(Fagars, Sibiu, 99);
+        path.addState(Fagars, Bucharest, 211);
         
-        path.addState(Bucharest, Pitesti);
-        path.addState(Bucharest, Fagars);
-        path.addState(Bucharest, Urziceni);
-        path.addState(Bucharest, Glurgiu);
+        path.addState(Bucharest, Pitesti, 101);
+        path.addState(Bucharest, Fagars, 211);
+        path.addState(Bucharest, Urziceni, 85);
+        path.addState(Bucharest, Glurgiu, 90);
         
-        path.addState(Urziceni, Hisova);
-        path.addState(Urziceni, Bucharest);
-        path.addState(Urziceni, Vaslui);
+        path.addState(Urziceni, Hisova, 98);
+        path.addState(Urziceni, Bucharest, 85);
+        path.addState(Urziceni, Vaslui, 142);
         
-        path.addState(Hisova, Urziceni);
-        path.addState(Hisova, Eforie);
+        path.addState(Hisova, Urziceni, 98);
+        path.addState(Hisova, Eforie, 86);
         
-        path.addState(Iasi, Vaslui);
-        path.addState(Iasi, Neamt);
+        path.addState(Iasi, Vaslui, 92);
+        path.addState(Iasi, Neamt, 87);
 
-        path.addState(Vaslui, Urziceni);
-        path.addState(Vaslui, Iasi);
+        path.addState(Vaslui, Urziceni, 142);
+        path.addState(Vaslui, Iasi, 92);
 
         initialCity = Arad;
         destinationCity = Bucharest;

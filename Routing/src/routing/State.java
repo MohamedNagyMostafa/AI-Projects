@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Mohamed Nagy
  */
-public class State {
+public class State{
     private String mName;
     private int mStateId;
     private boolean mIsExplored;
