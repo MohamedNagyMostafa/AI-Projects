@@ -1,6 +1,6 @@
 <h1>Routing</h1>
 
-<p>Apply <b>Breadth First Search</b> algorithm to get the right path to destination country</b> </p>
+<p>Apply some <b>Search algorithms</b> to get the right path to destination country</b> </p>
 
 <h2>Countries Map</h2>
 <br/>
