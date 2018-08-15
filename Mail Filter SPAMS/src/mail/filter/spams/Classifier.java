@@ -16,10 +16,20 @@ import javafx.util.Pair;
 public class Classifier implements Function<String, float[]>{
     public static final int SPAM = 0;
     public static final int HAM = 1;
+    public static final int LAPLACIAN = 0X02;
+    public static final int NORMAL = 0X03;
+    
     private Controller[] mController;
+    private int mType;
+    
+    public Classifier(Controller[] controller, int type){
+        mController = controller;
+        mType = type;
+    }
     
     public Classifier(Controller[] controller){
         mController = controller;
+        mType = NORMAL;
     }
     
     @Override
@@ -32,7 +42,14 @@ public class Classifier implements Function<String, float[]>{
     }
     
     private float[] bayesNetwork(float [] probability, String features){
-        probability[SPAM] = bayesNetworkSpam(features);
+        switch(mType){
+            case NORMAL:
+                probability[SPAM] = bayesNetworkSpam(features);
+                break;
+            case LAPLACIAN:
+                probability[SPAM] = bayesNetworkSpamLaplace(features, 1);
+        }
+        
         probability[HAM] = 1 - probability[SPAM];
         
         return probability;
@@ -46,6 +63,20 @@ public class Classifier implements Function<String, float[]>{
         float p_ham = 1 - p_spam;
         float p_jointSpamAndMessage = p_spam * spam.getWordMultiplier(features);
         float p_jointHamAndMessage  = p_ham * ham.getWordMultiplier(features);
+        
+        return p_jointSpamAndMessage/(p_jointSpamAndMessage + p_jointHamAndMessage);
+    }
+    
+    private float bayesNetworkSpamLaplace(String features, int k){
+        Spam spam = ((Spam) mController[SPAM]);
+        Ham ham = ((Ham) mController[HAM]);
+        int x_abs = Controller.getUniqueWordsCount(spam.getDictionary(), ham.getDictionary());
+        System.out.println(x_abs);
+        
+        float p_spam = (spam.getSentencesCount()+k)/(float)(spam.getSentencesCount()+ ham.getSentencesCount()+ mController.length * k);
+        float p_ham = 1 - p_spam;
+        float p_jointSpamAndMessage = p_spam * spam.getWordMultiplierLaplace(features, k, x_abs);
+        float p_jointHamAndMessage  = p_ham * ham.getWordMultiplierLaplace(features, k, x_abs);
         
         return p_jointSpamAndMessage/(p_jointSpamAndMessage + p_jointHamAndMessage);
     }

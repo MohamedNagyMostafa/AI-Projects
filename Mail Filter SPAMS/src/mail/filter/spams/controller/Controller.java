@@ -58,4 +58,40 @@ public class Controller {
 
         return multiplier;
     }
+    
+    protected float getWordMultiplierLaplacian(String feature, HashMap<String, Integer> dictionary, int totalWords, int k, int x_abs){
+        String[] words = feature.split(SEPARATOR);
+        float multiplier = 1;
+        
+        for(String word: words)
+            multiplier *= dictionary.containsKey(word.toLowerCase())? (dictionary.get(word.toLowerCase())+k)/(double)(totalWords+k* x_abs):
+                    k/(double)(totalWords+k* x_abs);
+        
+        System.out.println(dictionary.size());
+        return multiplier;
+    }
+    
+    public static int getUniqueWordsCount(HashMap<String, Integer> dictionary1, HashMap<String, Integer> dictionary2){
+        int uniqueCount = 0;
+        
+        if(dictionary1.size() < dictionary2.size())
+            uniqueCount = compaining(dictionary1, dictionary2);
+        else
+            uniqueCount = compaining(dictionary2, dictionary1);
+
+        return uniqueCount;
+    }
+    
+   private static int compaining(HashMap<String, Integer> dictionary1, HashMap<String, Integer> dictionary2){
+       int elements = 0;
+       
+       for(String word: dictionary1.keySet())
+           if(!dictionary2.containsKey(word)) elements++; 
+       
+        return dictionary2.size() + elements;
+   }
+   
+   public interface Callbacks{
+       HashMap<String, Integer> getDictionary();
+   }
 }

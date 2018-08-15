@@ -14,7 +14,7 @@ import java.util.HashMap;
  *
  * @author Mohamed Nagy
  */
-public class Spam extends Controller{
+public class Spam extends Controller implements Controller.Callbacks{
     
     private int mTotalWords = 0;
     private List<String> mSpams;
@@ -58,5 +58,14 @@ public class Spam extends Controller{
     
     public float getWordMultiplier(String feature){
         return super.getWordMultiplier(feature, mSpamWords, mTotalWords);
+    }
+    
+    public float getWordMultiplierLaplace(String feature, int k, int x_abs){
+        return super.getWordMultiplierLaplacian(feature, mSpamWords, mTotalWords, k, x_abs);
+    }
+
+    @Override
+    public HashMap<String, Integer> getDictionary() {
+        return mSpamWords;
     }
 }

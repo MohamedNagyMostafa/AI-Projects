@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Mohamed Nagy
  */
-public class Ham extends Controller{
+public class Ham extends Controller implements Controller.Callbacks{
     
     private int mTotalWords = 0;
     private List<String> mHams;
@@ -58,5 +58,14 @@ public class Ham extends Controller{
     
     public float getWordMultiplier(String feature){
         return super.getWordMultiplier(feature, mHamWords, mTotalWords);
+    }
+    
+    public float getWordMultiplierLaplace(String feature, int k, int x_abs){
+        return super.getWordMultiplierLaplacian(feature, mHamWords, mTotalWords, k, x_abs);
+    }
+
+    @Override
+    public HashMap<String, Integer> getDictionary() {
+        return mHamWords;
     }
 }
