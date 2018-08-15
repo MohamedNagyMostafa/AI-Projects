@@ -191,7 +191,7 @@ public class Routing {
         path.addState(Vaslui, Iasi, 92);
 
         initialCity = Arad;
-        destinationCity = Bucharest;
+        destinationCity = Cralova;
         
         return path;
     }
