@@ -71,7 +71,6 @@ public class Classifier implements Function<String, float[]>{
         Spam spam = ((Spam) mController[SPAM]);
         Ham ham = ((Ham) mController[HAM]);
         int x_abs = Controller.getUniqueWordsCount(spam.getDictionary(), ham.getDictionary());
-        System.out.println(x_abs);
         
         float p_spam = (spam.getSentencesCount()+k)/(float)(spam.getSentencesCount()+ ham.getSentencesCount()+ mController.length * k);
         float p_ham = 1 - p_spam;

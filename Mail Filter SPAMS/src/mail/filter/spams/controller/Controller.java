@@ -55,7 +55,6 @@ public class Controller {
         for(String word: words)
             multiplier *= dictionary.containsKey(word.toLowerCase())? dictionary.get(word.toLowerCase())/(double)totalWords:0;
         
-
         return multiplier;
     }
     
@@ -67,7 +66,6 @@ public class Controller {
             multiplier *= dictionary.containsKey(word.toLowerCase())? (dictionary.get(word.toLowerCase())+k)/(double)(totalWords+k* x_abs):
                     k/(double)(totalWords+k* x_abs);
         
-        System.out.println(dictionary.size());
         return multiplier;
     }
     

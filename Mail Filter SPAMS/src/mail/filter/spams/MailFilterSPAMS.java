@@ -35,7 +35,7 @@ public class MailFilterSPAMS {
         Classifier classifier = new Classifier(controller);
         Classifier classifierLaplacian = new Classifier(controller,Classifier.LAPLACIAN);
         
-        float[] pro = classifier.apply("secret is secret");
+        float[] pro = classifier.apply("today is secret");
         float[] proL = classifierLaplacian.apply("today is secret");
         
         System.out.println("Spam: " + pro[Classifier.SPAM]* 100 +"%" + " Ham: " + pro[Classifier.HAM]* 100 +"%");
