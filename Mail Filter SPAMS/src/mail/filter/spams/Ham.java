@@ -6,57 +6,57 @@
 package mail.filter.spams;
 
 import mail.filter.spams.controller.Controller;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
  * @author Mohamed Nagy
  */
-public class Spam extends Controller{
+public class Ham extends Controller{
     
     private int mTotalWords = 0;
-    private List<String> mSpams;
-    private HashMap<String, Integer> mSpamWords;
+    private List<String> mHams;
+    private HashMap<String, Integer> mHamWords;
     
-    public Spam(List<String> spams){
-        mSpams = spams;
+    public Ham(List<String> spams){
+        mHams = spams;
         init();
     }
     
-    public Spam(){
-        mSpams = new ArrayList<>();
+    public Ham(){
+        mHams = new ArrayList<>();
         init();
     }
     
     private void init(){
-        mSpamWords = new HashMap<>();
+        mHamWords = new HashMap<>();
         
-        if(mSpams != null){
-            mSpams.forEach((sentence) -> {
-                mTotalWords += splitingToWords(sentence, mSpamWords);
+        if(mHams != null){
+            mHams.forEach((sentence) -> {
+                mTotalWords += splitingToWords(sentence, mHamWords);
             });
         }
     }
     
     public void addSentence(String sentence){
-        mTotalWords += super.addSentence(sentence, mSpams, mSpamWords);
+        mTotalWords += super.addSentence(sentence, mHams, mHamWords);
     }
     
     public int getSentencesCount(){
-        return super.getSentencesCount(mSpams);
+        return super.getSentencesCount(mHams);
     }
     
     public int getWordsCount(){
-        return super.getWordsCount(mSpamWords);
+        return super.getWordsCount(mHamWords);
     }
     
     public int getWordCount(String word){
-        return super.getWordCount(word, mSpamWords);
+        return super.getWordCount(word, mHamWords);
     }
     
     public float getWordMultiplier(String feature){
-        return super.getWordMultiplier(feature, mSpamWords, mTotalWords);
+        return super.getWordMultiplier(feature, mHamWords, mTotalWords);
     }
 }
