@@ -1,5 +1,5 @@
 import random as rn
-import point
+from point import Point
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import matplotlib
@@ -19,23 +19,20 @@ def distance(point1, point2):
 
 # returns the closest cluster to a specific point
 def closerCluster3D(cluster1, cluster2, cluster3, point):
-	c1_d = cluser1.distance(point)
-	c2_d = cluser2.distance(point)
-	c3_d = cluser3.distance(point)
+	c1_d = cluster1.distance(point)
+	c2_d = cluster2.distance(point)
+	c3_d = cluster3.distance(point)
 
 	if(c1_d < c2_d):
 		if(c1_d < c3_d):
 			return cluster1
 		else:
-			if(c2_d < c3_d):
-				return c2_d
-			else:
-				return c3_d
+			return cluster3
 	else:
 		if(c2_d < c3_d):
-			return c2_d
+			return cluster2
 		else:
-			return c3_d
+			return cluster3
 
 # bubble sort
 def sort(list):
@@ -52,9 +49,9 @@ def sort(list):
 def median(list):
 	list = sort(list)
 	size = len(list)
-	if(size %2 == 0):
-		index = int(size/2)
-		return (list[index] + list[index-1])/2
+	if(size % 2 == 0):
+		index = int(size/2) - 1
+		return (list[index] + list[index+1])/2
 	else:
 		index = int((size+1)/2)
 		return list[index-1]
@@ -66,8 +63,8 @@ def draw(cluster1, cluster2, cluster3):
 	ax.scatter3D(xs= cluster1.axes['x'], ys=cluster1.axes['y'], zs=cluster1.axes['z'], c=cluster1.color, marker= 'o')
 	ax.scatter3D(xs= cluster2.axes['x'], ys=cluster2.axes['y'], zs=cluster2.axes['z'], c=cluster2.color, marker= 'o')
 	ax.scatter3D(xs= cluster3.axes['x'], ys=cluster3.axes['y'], zs=cluster3.axes['z'], c=cluster3.color, marker= 'o')
-	ax.plot(xs=cluster1.position.x, ys=cluster1.position.x, zs=cluster1.position.x, c=cluster1.color, marker='^')
-	ax.plot(xs=cluster2.position.x, ys=cluster2.position.x, zs=cluster2.position.x, c=cluster2.color, marker='^')
-	ax.plot(xs=cluster3.position.x, ys=cluster3.position.x, zs=cluster3.position.x, c=cluster3.color, marker='^')
+	ax.scatter3D(xs=cluster1.position.x, ys=cluster1.position.y, zs=cluster1.position.z, c=cluster1.color, marker='^')
+	ax.scatter3D(xs=cluster2.position.x, ys=cluster2.position.y, zs=cluster2.position.z, c=cluster2.color, marker='^')
+	ax.scatter3D(xs=cluster3.position.x, ys=cluster3.position.y, zs=cluster3.position.z, c=cluster3.color, marker='^')
 
 	plt.show()
