@@ -54,5 +54,16 @@ def k_means(points, min_x, max_x, min_y, max_y, min_z, max_z):
 				break;
 
 
+	print("cluster 1:")
+	for point in cluster1.points:
+		print("x: ", point.x, " y: ", point.y, " z: ", point.z)
+	print("cluster 2:")
+	for point in cluster2.points:
+		print("x: ", point.x, " y: ", point.y, " z: ", point.z)
+	print("cluster 3:")
+	for point in cluster3.points:
+		print("x: ", point.x, " y: ", point.y, " z: ", point.z)
+	utl.draw(cluster1, cluster2, cluster3)
+
 
 k_means(dt.points, dt.min_x, dt.max_x, dt.min_y, dt.max_z, dt.min_z, dt.max_z)
