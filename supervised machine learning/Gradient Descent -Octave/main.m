@@ -10,6 +10,6 @@ function main(features, y, theta, traningRate, iteration)
     cost = [cost ;costFunction(estimatedX, y)]
   endfor
   
-  plotCostGraph(cost, iteration)
-  plotEstimatedGraph(features, y, estimatedX)
+  plotingProcesses(iteration, cost, features, y, estimatedX)
+  
 endfunction

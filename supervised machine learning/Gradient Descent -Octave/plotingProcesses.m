@@ -1,20 +1,7 @@
-function plotingProcesses(iteration, cost, X, Y, estimatedXs)
-  colWindow = 3
-  rowWindow = 0
-  
-  if iteraion < 3
-    colWindow = 2
-  endif
-  
-  if iteraion % 3 == 0
-    rowWindow = (iteraion/3) + 1
-  else
-    rowWindow = ceil(iteraion/3)
-  endif
-  for i=1:length(X)
-    
-  endfor
-  subplot(rowWindow, colWindow)  
-   
-  plotCostGraph(iteration, cost)
+function plotingProcesses(iteration, cost, X, y, estimatedXs)
+  subplot(1, 2, 2)
+  plotCostGraph(cost, iteration)  
+  subplot(1, 2, 1)
+  plotEstimatedGraph(X, y, estimatedXs)
+  print -dpng 'CostFunctionPlot.png'
 endfunction
