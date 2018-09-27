@@ -10,6 +10,7 @@ function main(features, y, theta, traningRate, iteration)
     cost = [cost ;costFunction(estimatedX, y)]
   endfor
   
-  plotingProcesses(iteration, cost, features, y, estimatedX)
+  estimatedNormalization = normalization(features, y)
+  plotingProcesses(iteration, cost, features, y, estimatedX, estimatedNormalization)
   
 endfunction
