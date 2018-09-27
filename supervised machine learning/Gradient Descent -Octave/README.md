@@ -12,6 +12,13 @@ Using cost function to verfiy learning rate and algorithm validation.
 <img src="https://pbs.twimg.com/media/DK26ibcXUAEOwel.jpg"/>
 </br>
 <h2>Processes</h2>
-<p>Find best fit line for population/profit data</p>
+<p>Find best fit line for population/profit data using iteraion and normalization methods</p>
+<h4>Iteraion</h4>
+Training rate:<b>0.023</b>
+Iteraion: <b>1000 times</b>
 </br>
-<img src="https://i.imgur.com/4pRbGLt.png"/>
+</br>
+<img src="https://cdn-images-1.medium.com/max/1600/1*vXpodxSx-nslMSpOELhovg.png"/>
+</br>
+</br>
+<img src="https://i.imgur.com/ikwLb8d.png"/>
