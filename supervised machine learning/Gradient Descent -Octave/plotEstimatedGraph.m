@@ -1,11 +1,19 @@
-function plotEstimatedGraph(x, y, estimatedX, t)
-  xAxis = [min(x)-5 max(x)+5]
-  yAxis = [min([y;estimatedX])-5 max([y;estimatedX])+5]
+function plotEstimatedGraph(x, y, estimatedX, type)
   plot(x,y,'rx', 'MarkerSize', 10)
   hold on
-  plot(x, estimatedX, 'b')
-  axis([xAxis yAxis])
-  title(t)
+  
+  switch type
+    case 1
+      plot(x, estimatedX, 'b')
+      title('Normalization Graph')
+    case 2
+      plot(x, estimatedX, 'b')
+      title('Estimated Graph')
+    case 3
+      plot(x, estimatedX, "ok")
+      title('Estimated Polynomial Regression Graph')
+  endswitch
+      
   xlabel('Population')
   ylabel('Profit')
   legend('Traning Set', 'Estimated Fit Line')
