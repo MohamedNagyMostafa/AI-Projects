@@ -22,3 +22,19 @@ Iteraion: <b>1000 times</b>
 </br>
 </br>
 <img src="https://i.imgur.com/KgqieOd.png"/>
+</br>
+</br>
+<p>Using polynomial regression <b>order two</b></p>
+</br>
+Training rate:<b>1</b>
+Iteraion: <b>1000 times</b>
+</br>
+</br>
+<img src="https://i.imgur.com/D56o3fi.png"/>
+</br>
+</br>
+Training rate:<b>1</b>
+Iteraion: <b>1500 times</b>
+</br>
+</br>
+<img src="https://i.imgur.com/MyqSbtu.png"/>
