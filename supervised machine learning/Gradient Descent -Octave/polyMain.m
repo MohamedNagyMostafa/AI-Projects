@@ -18,5 +18,5 @@ function polyMain(features, y, theta, traningRate, iteration, degree)
   endfor
   
   estimatedNormalization = normalization(features, y)
-  plotingProcesses(iteration, cost, features, y, estimatedX, estimatedNormalization)
+  plotingProcesses(iteration, cost, features, y, estimatedX, estimatedNormalization, 3)
 endfunction
