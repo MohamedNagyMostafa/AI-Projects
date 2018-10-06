@@ -11,3 +11,5 @@ Alpha: <b>0.0001</b></br>
 Iteraion: <b>1~10k</b></br>
 </br>
 <img src ="https://i.imgur.com/HwfT0Bk.png"/>
+</br>
+<img src="https://i.imgur.com/GTFUHln.png"/>
