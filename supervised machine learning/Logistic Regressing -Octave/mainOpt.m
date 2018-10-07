@@ -10,11 +10,11 @@ function mainOpt(x,y,theta,iteration, lambda, regularization, degree)
   
   h0 = hypothese(optTheta, X, r)
   
-  subplot(1,3,2)
-  plotDecisionLine(x,y,optTheta)
-  subplot(1,3,1)
+  %subplot(1,3,2)
+  %plotDecisionLine(x,y,optTheta)
+  subplot(1,2,1)
   plotData(x,y)
-  subplot(1,3,3)
+  subplot(1,2,2)
   plotEstimatedData(x,h0)
   
 endfunction
