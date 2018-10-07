@@ -1,15 +1,14 @@
-function main(x,y,theta,alpha, iteration, lambda, regularization)
-  [r c] = size(x)
+function main(x,y,theta,alpha, iteration, lambda, regularization, degree)
+  [theta X r c] = mapFunction(theta, x, degree)
   % 0 : don't use regularization
   % 1 : by using regulaization
   %visualization
   
-  theta = ones(c+1,1)*theta
-  h0 = hypothese(theta, x, r)
+  h0 = hypothese(theta, X, r)
   cost = []
   for i=1:iteration
-    theta = gradient(theta, alpha, h0,x,y,r, regularization, lambda)
-    h0 = hypothese(theta, x, r)
+    theta = gradient(theta, alpha, h0,X,y,r, regularization, lambda)
+    h0 = hypothese(theta, X, r)
     cost = [cost;costFunction(c,h0,y, regularization, lambda, theta)]
   endfor
   
