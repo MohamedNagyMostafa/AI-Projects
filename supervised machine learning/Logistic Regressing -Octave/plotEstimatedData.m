@@ -4,7 +4,7 @@ function plotEstimatedData(X,y)
   plot(X(pos,1),X(pos,2),'k+','LineWidth',2)
   hold on;
   plot(X(neg,1),X(neg,2),'ko','MarkerFaceColor','y', 'MarkerSize',7)
-  xlabel('Exam 1 score')
-  ylabel('Exam 2 score')
+  xlabel('Microchip Test 1')
+ylabel('Microchip Test 2')
   title("Estimated data Visualization")
 endfunction
