@@ -1,11 +1,13 @@
-function mainOpt(x,y,theta,iteration)
+function mainOpt(x,y,theta,iteration, lambda, regularization)
   [r c] = size(x)
   theta = ones(c+1,1)*theta
+  % 0 : don't use regularization
+  % 1 : by using regulaization
   %visualization
-  [jVal, grad] = costFunctionOpt(theta,x,y)
+  [jVal, grad] = costFunctionOpt(theta,x,y, regularization, lambda)
   
   options = optimset('GradObj', 'on','MaxIter','100')
-  [optTheta, funVal, exitFlag] = fminunc(@(t) costFunctionOpt(t,x,y), theta, options)
+  [optTheta, funVal, exitFlag] = fminunc(@(t) costFunctionOpt(t,x,y, regularization, lambda),theta, options)
   
   h0 = hypothese(optTheta, x, r)
   

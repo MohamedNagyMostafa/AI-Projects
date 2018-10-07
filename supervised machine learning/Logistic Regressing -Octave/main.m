@@ -1,14 +1,16 @@
-function main(x,y,theta,alpha, iteration)
+function main(x,y,theta,alpha, iteration, lambda, regularization)
   [r c] = size(x)
+  % 0 : don't use regularization
+  % 1 : by using regulaization
   %visualization
   
   theta = ones(c+1,1)*theta
   h0 = hypothese(theta, x, r)
   cost = []
   for i=1:iteration
-    theta = gradient(theta, alpha, h0,x,y,r)
+    theta = gradient(theta, alpha, h0,x,y,r, regularization, lambda)
     h0 = hypothese(theta, x, r)
-    cost = [cost;costFunction(c,h0,y)]
+    cost = [cost;costFunction(c,h0,y, regularization, lambda, theta)]
   endfor
   
   subplot(1,3,2)
