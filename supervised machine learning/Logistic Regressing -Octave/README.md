@@ -1,5 +1,5 @@
 <h1>Logistic Regression (Classification)</h1>
-<p>Using logistic regression to specify qualified students for a department using their scores in two different exams.</p>
+<p>Using logistic regression to specify qualified students for a department using their scores in two different exams. and Another test on microships tests</p>
 <h2>Methods</h2>
 <h3>Using Gradient Descent</h3>
 </br>
@@ -65,4 +65,52 @@ Last cost: <b>0.031571</b>
 <img src="https://i.imgur.com/8d5MZpx.png"/>
 </br>
 <img src="https://i.imgur.com/sfhBliP.png"/>
+</br>
+<h3>Microship Test (Another Data) Using Gradient Descent</h3>
+<p>Initial Theta: <b>0.3</b></br>
+Alpha: <b>1</b></br>
+Iteraion: <b>10</b></br></p>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584370-95955e00-ca62-11e8-8b6c-84c8fa617103.PNG"/>
+</br>
+<p>Initial Theta: <b>0.3</b></br>
+Alpha: <b>1</b></br>
+Iteraion: <b>50</b></br></p>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584379-a514a700-ca62-11e8-9aaa-c964223f3f93.PNG"/>
+</br>
+<p>Initial Theta: <b>0.3</b></br>
+Alpha: <b>1</b></br>
+Iteraion: <b>100</b></br></p>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584380-a514a700-ca62-11e8-8f81-c34d83aa40ed.PNG"/>
+</br>
+<p>Initial Theta: <b>0.3</b></br>
+Alpha: <b>1</b></br>
+Iteraion: <b>500</b></br></p>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584377-a47c1080-ca62-11e8-9cf3-adcc209f4d9b.PNG"/>
+</br>
+<p>Initial Theta: <b>0.3</b></br>
+Alpha: <b>1</b></br>
+Iteraion: <b>1000</b></br></p>
+Last cost: <b>0.031571</b>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584378-a514a700-ca62-11e8-8d3d-ed838043334a.PNG"/>
+</br>
+<h3>Microship Test Using Advanced Optimization methods</h3>
+<p>Initial Theta: <b>0.3</b></br>
+Iteraion: <b>300</b></br></p>
+Lambda: <b>10</b></br></p>
+poly: <b>order 2</b></br>
+Last cost: <b>0.031571</b>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584395-e5742500-ca62-11e8-8143-4fc5e389bfc3.PNG"/>
+</br>
+Iteraion: <b>300</b></br></p>
+Lambda: <b>10</b></br></p>
+poly: <b>order 3</b></br>
+Last cost: <b>0.031571</b>
+</br>
+<img src="https://user-images.githubusercontent.com/20774864/46584394-e5742500-ca62-11e8-9b4a-f0c0141086c9.PNG"/>
 </br>
