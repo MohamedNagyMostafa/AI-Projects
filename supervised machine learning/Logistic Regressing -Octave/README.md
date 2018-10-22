@@ -94,7 +94,7 @@ Iteraion: <b>500</b></br></p>
 <p>Initial Theta: <b>0.3</b></br>
 Alpha: <b>1</b></br>
 Iteraion: <b>1000</b></br></p>
-Last cost: <b>0.031571</b>
+
 </br>
 <img src="https://user-images.githubusercontent.com/20774864/46584378-a514a700-ca62-11e8-8d3d-ed838043334a.PNG"/>
 </br>
@@ -103,14 +103,14 @@ Last cost: <b>0.031571</b>
 Iteraion: <b>300</b></br></p>
 Lambda: <b>10</b></br></p>
 poly: <b>order 2</b></br>
-Last cost: <b>0.031571</b>
+
 </br>
 <img src="https://user-images.githubusercontent.com/20774864/46584395-e5742500-ca62-11e8-8143-4fc5e389bfc3.PNG"/>
 </br>
 Iteraion: <b>300</b></br></p>
 Lambda: <b>10</b></br></p>
 poly: <b>order 3</b></br>
-Last cost: <b>0.031571</b>
+
 </br>
 <img src="https://user-images.githubusercontent.com/20774864/46584394-e5742500-ca62-11e8-9b4a-f0c0141086c9.PNG"/>
 </br>
