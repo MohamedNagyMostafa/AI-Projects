@@ -1,11 +1,13 @@
 function thetas = trainingOneVsAll(X, y, lambda)
-  num_labesl = 10;
+  num_labels = 10;
   [m n] = size(X);
-  
+  options = optimset('GradObj', 'on', 'MaxIter', 50);
+
   for c = 1:num_labels
-    theta = zeros(n+1, 1);
-    options = optimset('GradObj', 'on', 'MaxIter', 10);
-    [theta] = (fmincg(@(t) (costFunction(t, X, (y==c), lambda)),theta, options))
+    theta_initial = zeros(n+1, 1);
+    [theta] = fmincg(@(t) (costFunction(t, X, (y==c), lambda)),theta_initial, options)
     thetas(c, :) = theta';
+    pause;
   endfor
+  
 endfunction

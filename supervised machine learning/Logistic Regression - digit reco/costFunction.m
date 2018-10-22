@@ -7,4 +7,5 @@ function [J grad] = costFunction(theta, X, y, lambda)
 
   grad = 1.0 ./ m *((h0-y)' * X)
   grad(2:end) = grad(2:end) + ((lambda./m) *theta(2:end))'
+  grad = grad'
 endfunction
