@@ -1,8 +1,8 @@
-function [J grad] = costFunction(inputLayers, hiddenLayers, outputLayers, Theta, lambda, num_labels, X, y)
+function [J grad] = costFunction(inputLayers, hiddenLayers, outputLayers, Theta, lambda, X, y)
   
   [r c] = size(X);
   num_examples = r;
-  
+  num_labels = outputLayers;
   %Reshape Thetas ...
   Theta1 = reshape(Theta(1:hiddenLayers *(inputLayers+1)), hiddenLayers, inputLayers + 1);
   Theta2 = reshape(Theta(((inputLayers+1) *hiddenLayers)+1:end), outputLayers, hiddenLayers + 1);
@@ -41,7 +41,6 @@ function [J grad] = costFunction(inputLayers, hiddenLayers, outputLayers, Theta,
   D_2(:,2:end) =  (delta_2(:,2:end) + lambda .* Theta2(:,2:end))./num_examples;
   D_1(:,1) = delta_1(:,1)./num_examples;
   D_2(:,1) = delta_2(:,1)./num_examples;
-  
   
   grad = [D_1(:);D_2(:)];
   
